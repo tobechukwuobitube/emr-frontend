@@ -32,10 +32,6 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
   const minTeacherAge = 21;
   const isLessThan21 = yearsDifference < minTeacherAge;
 
-  useEffect(() => {
-    setSuccess(false);
-  }, [setSuccess]);
-
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     const dateOfBirth = dayjs(date).format("YYYY-MM-DD");
     const yearsDiff = dayjs().diff(dateOfBirth, "years");
@@ -49,7 +45,6 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
 
   const onClose = () => {
     closeModal(false);
-    setSuccess(false);
   };
 
   const onFinish = async (values: TeacherType) => {

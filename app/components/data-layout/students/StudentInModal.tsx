@@ -2,7 +2,7 @@ import React from "react";
 import Modal, { useModal } from "../../shared/Modal";
 import EditTeacher from "./EditTeacher";
 
-export type TeacherInModalProps = {
+export type StudentInModalProps = {
   cancelShowModal?: () => void;
   modalVisible: boolean;
   setModalVisible: (arg: boolean) => void;
@@ -10,7 +10,7 @@ export type TeacherInModalProps = {
   setSuccess: () => void;
 };
 
-const TeacherInModal: React.FC<TeacherInModalProps> = ({
+const StudentInModal: React.FC<StudentInModalProps> = ({
   modalVisible,
   cancelShowModal,
   setModalVisible,
@@ -33,4 +33,4 @@ const TeacherInModal: React.FC<TeacherInModalProps> = ({
   );
 };
 
-export default TeacherInModal;
+export default StudentInModal;
