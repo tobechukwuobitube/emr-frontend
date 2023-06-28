@@ -18,8 +18,23 @@ export type StudentType = {
   salary: number;
 };
 
+export type TeacherAppProps = {
+  tabKey: string;
+  success: boolean;
+  setSuccess: () => void;
+};
+
+export type StudentAppProps = {
+  tabKey: string;
+  success: boolean;
+  setSuccess: () => void;
+};
+
 export type AppProps = {
   owner: string;
   dataSource: Array<{}>;
   columns: Array<{}>;
+  tabKey: string;
+  success: boolean;
+  setSuccess: () => void;
 };

@@ -7,13 +7,14 @@ export const getAllTeachers = async () => {
 };
 
 export const createTeacher = async (data: TeacherType) => {
+  console.log({ data });
   const response = await fetch("http://localhost:3001/teachers", {
     method: "POST",
     headers: {
-      "Content-Type": "applicatioin/json",
+      "Content-Type": "application/json",
       "Access-Control-Allow-Headers": "*",
     },
-    body: JSON.stringify({ teacher: data }),
+    body: JSON.stringify({ ...data }),
   });
 
   return await response.json();
