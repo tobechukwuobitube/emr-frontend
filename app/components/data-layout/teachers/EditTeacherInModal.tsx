@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Modal, { useModal } from "../shared/Modal";
-import EditTeacher from "./teachers/EditTeacher";
+import Modal, { useModal } from "../../shared/Modal";
+import EditTeacher from "./EditTeacher";
 
-export type EditEntryInModalProps = {
+export type EditTeacherInModalProps = {
   cancelShowModal?: () => void;
   modalVisible: boolean;
   setModalVisible: (arg: boolean) => void;
@@ -10,7 +10,7 @@ export type EditEntryInModalProps = {
   setSuccess: (args: boolean) => void;
 };
 
-const EditEntryInModal: React.FC<EditEntryInModalProps> = ({
+const EditTeacherInModal: React.FC<EditTeacherInModalProps> = ({
   modalVisible,
   cancelShowModal,
   setModalVisible,
@@ -38,4 +38,4 @@ const EditEntryInModal: React.FC<EditEntryInModalProps> = ({
   );
 };
 
-export default EditEntryInModal;
+export default EditTeacherInModal;

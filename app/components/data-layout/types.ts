@@ -10,12 +10,10 @@ export type TeacherType = {
 
 export type StudentType = {
   nationalId: number;
-  title: string;
   name: string;
   surname: string;
   dateOfBirth: string;
-  teacherNumber: number;
-  salary: number;
+  studentNumber: number;
 };
 
 export type TeacherAppProps = {
