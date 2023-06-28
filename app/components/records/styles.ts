@@ -1,9 +1,8 @@
 import { styled } from "styled-components";
 
 export const RecordsContainer = styled.main`
-  width: 100%;
+  width: 80%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  background-color: white;
 `;
