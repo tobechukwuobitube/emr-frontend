@@ -12,7 +12,6 @@ import {
   message,
 } from "antd";
 import dayjs from "dayjs";
-import { useForm } from "antd/es/form/Form";
 import { TeacherType } from "../types";
 import { createTeacher, getAllTeachers } from "./teachersService";
 
@@ -25,7 +24,7 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
   closeModal,
   setSuccess,
 }) => {
-  const [form] = useForm();
+  const [form] = Form.useForm();
   const [yearsDifference, setYearsDifference] = useState(0);
   const [lessThan21, setLessThan21] = useState(false);
 

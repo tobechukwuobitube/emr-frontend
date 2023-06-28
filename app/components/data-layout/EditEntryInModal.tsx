@@ -20,7 +20,7 @@ const EditEntryInModal: React.FC<EditEntryInModalProps> = ({
   useEffect(() => {
     setSuccess(false);
   }, []);
-  console.log({ success });
+
   const { visible, setVisible, handleOk, handleCancel } = useModal({
     onModalClose: cancelShowModal,
   });
