@@ -1,33 +1,8 @@
 import { Button, Col, Row, Table } from "antd";
 import React from "react";
+import { AppProps } from "./types";
 
-type TeachersColumnsType = {
-  nationalId: number;
-  title: string;
-  name: string;
-  surname: string;
-  dateOfBirth: string;
-  teacherNumber: number;
-  salary: number;
-};
-
-type StudentsColumnsType = {
-  nationalId: number;
-  title: string;
-  name: string;
-  surname: string;
-  dateOfBirth: string;
-  teacherNumber: number;
-  salary: number;
-};
-
-type AppProps = {
-  owner: string;
-  dataSource: Array<{}>;
-  columns: Array<{}>;
-};
-
-const DataLayout: React.FC<AppProps> = ({ owner, dataSource, columns }) => {
+const DataLayout: React.FC<AppProps> = ({ dataSource, columns }) => {
   return (
     <div>
       <Row justify="end" className="w-full mb-8">
