@@ -21,13 +21,13 @@ export type StudentType = {
 export type TeacherAppProps = {
   tabKey: string;
   success: boolean;
-  setSuccess: () => void;
+  setSuccess: (args: boolean) => void;
 };
 
 export type StudentAppProps = {
   tabKey: string;
   success: boolean;
-  setSuccess: () => void;
+  setSuccess: (args: boolean) => void;
 };
 
 export type AppProps = {
@@ -36,5 +36,5 @@ export type AppProps = {
   columns: Array<{}>;
   tabKey: string;
   success: boolean;
-  setSuccess: () => void;
+  setSuccess: (args: boolean) => void;
 };

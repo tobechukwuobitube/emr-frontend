@@ -1,7 +1,7 @@
 import { Button, Col, Row, Table } from "antd";
 import React, { useState } from "react";
 import { AppProps } from "./types";
-import TeacherInModal from "./teachers/TeacherInModal";
+import EditEntryInModal from "./EditEntryInModal";
 
 const DataLayout: React.FC<AppProps> = ({
   dataSource,
@@ -11,9 +11,14 @@ const DataLayout: React.FC<AppProps> = ({
   setSuccess,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  // const [studentModalVisible, setStudentModalVisible] = useState(false);
 
   const handleAddRecordButtonClick = () => {
-    tabKey === "teachers" ? setModalVisible(true) : null;
+    tabKey === "teachers"
+      ? setModalVisible(true)
+      : // : tabKey === "students"
+        // ? setStudentModalVisible(true)
+        null;
   };
 
   const cancelShowModal = () => {
@@ -34,10 +39,11 @@ const DataLayout: React.FC<AppProps> = ({
           <Table dataSource={dataSource} columns={columns} />
         </Col>
       </Row>
-
-      <TeacherInModal
+      <EditEntryInModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        // studentModalVisible={studentModalVisible}
+        // setStudentModalVisible={setStudentModalVisible}
         success={success}
         setSuccess={setSuccess}
         cancelShowModal={cancelShowModal}

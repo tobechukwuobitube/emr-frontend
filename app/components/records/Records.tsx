@@ -9,7 +9,7 @@ const { Title } = Typography;
 
 const Records = () => {
   const [tabKey, setTabkey] = useState("");
-  const [success, setSuccess] = useState({});
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     setTabkey("teachers");
@@ -24,12 +24,16 @@ const Records = () => {
     {
       key: "teachers",
       label: `Teachers`,
-      children: <Teachers tabKey={tabKey} setSuccess={setSuccess} />,
+      children: (
+        <Teachers tabKey={tabKey} setSuccess={setSuccess} success={success} />
+      ),
     },
     {
       key: "students",
       label: `Students`,
-      children: <Students tabKey={tabKey} setSuccess={setSuccess} />,
+      children: (
+        <Students tabKey={tabKey} setSuccess={setSuccess} success={success} />
+      ),
     },
   ];
 
