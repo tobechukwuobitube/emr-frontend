@@ -9,6 +9,7 @@ import {
   Input,
   InputNumber,
   Row,
+  Select,
   message,
 } from "antd";
 import dayjs from "dayjs";
@@ -34,6 +35,11 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
   useEffect(() => {
     setSuccess(false);
   }, [setSuccess]);
+
+  const titleOptions = ["Mr", "Mrs", "Miss", "Dr", "Prof"].map((value) => ({
+    label: value,
+    value,
+  }));
 
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     const dateOfBirth = dayjs(date).format("YYYY-MM-DD");
@@ -91,7 +97,10 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
         name="title"
         rules={[{ required: true, message: "Please select a title!" }]}
       >
-        <Input />
+        <Select
+          placeholder="Select your appropriate title"
+          options={titleOptions}
+        />
       </Form.Item>
       <Form.Item
         label="Name"
