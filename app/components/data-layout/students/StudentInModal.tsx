@@ -1,6 +1,6 @@
 import React from "react";
 import Modal, { useModal } from "../../shared/Modal";
-import EditTeacher from "./EditTeacher";
+import EditStudent from "./EditStudent";
 
 export type StudentInModalProps = {
   cancelShowModal?: () => void;
@@ -28,7 +28,7 @@ const StudentInModal: React.FC<StudentInModalProps> = ({
       handleCancel={cancelShowModal}
       width={500}
     >
-      <EditTeacher closeModal={setModalVisible} setSuccess={setSuccess} />
+      <EditStudent closeModal={setModalVisible} setSuccess={setSuccess} />
     </Modal>
   );
 };
