@@ -13,15 +13,15 @@ import {
 } from "antd";
 import dayjs from "dayjs";
 import { useForm } from "antd/es/form/Form";
-import { TeacherType } from "../types";
-import { createTeacher, getAllTeachers } from "./teachersService";
+import { StudentType, TeacherType } from "../types";
+import { createStudent, getAllStudents } from "./studentsService";
 
-export type EditTeacherProps = {
+export type EditStudentProps = {
   closeModal: (arg: boolean) => void;
   setSuccess: (arg: boolean) => void;
 };
 
-const EditTeacher: React.FC<EditTeacherProps> = ({
+const EditStudent: React.FC<EditStudentProps> = ({
   closeModal,
   setSuccess,
 }) => {
@@ -29,15 +29,15 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
   const [yearsDifference, setYearsDifference] = useState(0);
   const [lessThan21, setLessThan21] = useState(false);
 
-  const minTeacherAge = 21;
-  const isLessThan21 = yearsDifference < minTeacherAge;
+  const minStudentAge = 22;
+  const isLessThan21 = yearsDifference < minStudentAge;
 
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     const dateOfBirth = dayjs(date).format("YYYY-MM-DD");
     const yearsDiff = dayjs().diff(dateOfBirth, "years");
     setYearsDifference(dayjs().diff(dateOfBirth, "years"));
 
-    if (yearsDiff < minTeacherAge) {
+    if (yearsDiff < minStudentAge) {
       setLessThan21(true);
       message.error("You are less than 21 years");
     }
@@ -47,18 +47,16 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
     closeModal(false);
   };
 
-  const onFinish = async (values: TeacherType) => {
+  const onFinish = async (values: StudentType) => {
     const variables = {
       nationalId: Number(values.nationalId),
-      title: values.title,
       name: values.name,
       surname: values.surname,
       dateOfBirth: dayjs(values?.dateOfBirth).format("YYYY-MM-DD"),
-      teacherNumber: Number(values.teacherNumber),
-      salary: Number(values.salary),
+      studentNumber: Number(values.studentNumber),
     };
 
-    createTeacher(variables)
+    createStudent(variables)
       .then((res) => {
         if (res.id) setSuccess(true);
         message.success("Your entry was successful");
@@ -81,13 +79,6 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
         ]}
       >
         <InputNumber style={{ width: "100%" }} />
-      </Form.Item>
-      <Form.Item
-        label="Title"
-        name="title"
-        rules={[{ required: true, message: "Please select a title!" }]}
-      >
-        <Input />
       </Form.Item>
       <Form.Item
         label="Name"
@@ -116,15 +107,12 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
         <DatePicker style={{ width: "100%" }} onChange={onChange} />
       </Form.Item>
       <Form.Item
-        label="Teacher Number"
-        name="teacherNumber"
+        label="Student Number"
+        name="studentNumber"
         rules={[
-          { required: true, message: "Please enter your teacher number!" },
+          { required: true, message: "Please enter your student number!" },
         ]}
       >
-        <InputNumber style={{ width: "100%" }} />
-      </Form.Item>
-      <Form.Item label="Salary (optional)" name="salary">
         <InputNumber style={{ width: "100%" }} />
       </Form.Item>
       <Divider />
@@ -144,4 +132,4 @@ const EditTeacher: React.FC<EditTeacherProps> = ({
   );
 };
 
-export default EditTeacher;
+export default EditStudent;
