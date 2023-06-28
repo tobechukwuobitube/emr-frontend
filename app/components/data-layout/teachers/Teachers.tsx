@@ -9,12 +9,10 @@ const Teachers: React.FC<TeacherAppProps> = ({
   success,
   setSuccess,
 }) => {
-  const [teachers, setTeachers] = useState([]);
+  const [teachers, setTeachers] = useState<Array<{}>>([{}]);
 
   const getTeachers = () => {
-    getAllTeachers().then((teachers) => {
-      setTeachers(teachers);
-    });
+    getAllTeachers().then((teachers) => setTeachers(teachers));
   };
 
   useEffect(() => {
@@ -24,8 +22,6 @@ const Teachers: React.FC<TeacherAppProps> = ({
   useEffect(() => {
     getTeachers();
   }, [success]);
-
-  console.log({ success });
 
   return (
     <div>
