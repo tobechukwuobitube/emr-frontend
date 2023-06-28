@@ -16,7 +16,6 @@ const Records = () => {
   }, []);
 
   const onChange = (key: string) => {
-    console.log(key);
     setTabkey(key);
   };
 
